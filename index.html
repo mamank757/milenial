@@ -85,15 +85,30 @@
         .col-konten { width: 22%; }
         .col-eviden { width: 19%; }
 
-        input[type="file"] { color: transparent; width: 85px; cursor: pointer; }
+       input[type="file"] { color: transparent; width: 85px; cursor: pointer; }
 
+        /* PERUBAHAN DISINI: Memastikan box preview mengikuti lebar kolom */
         .preview-box { 
-            width: 120px; height: 140px; border: 1px dashed #bbb; margin: 5px auto; 
-            display: flex; align-items: center; justify-content: center; background: #fafafa; overflow: hidden;
+            width: 100%; 
+            max-width: 120px; 
+            height: 140px; 
+            border: 1px dashed #bbb; 
+            margin: 5px auto; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            background: #fafafa; 
+            overflow: hidden;
         }
-        .preview-box img { width: 100%; height: 100%; display: none; object-fit: cover; }
-
-        .visitor-counter-wrapper { text-align: center; margin-bottom: 10px; font-size: 12px; }
+        /* PERUBAHAN DISINI: Gambar fit ke dalam kotak */
+        .preview-box img { 
+            max-width: 100%; 
+            max-height: 100%; 
+            width: auto;
+            height: auto;
+            display: none; 
+            object-fit: contain; 
+        }
 
         @media screen and (max-width: 768px) {
             .info-section { grid-template-columns: 1fr; gap: 5px; }
@@ -125,30 +140,42 @@
             color: #333;
         }
 
-        @media print {
-            @page { 
-                size: A4; 
-                margin-top: 2cm;
-                margin-bottom: 1cm;
-                margin-left: 2cm; 
-                margin-right: 2cm; 
-            }
-            .controls, .action-area, input[type="file"], .textarea-actions, .visitor-counter-wrapper, .footer { display: none !important; }
-            body { background: white; padding: 0; margin: 0; }
-            .container { box-shadow: none; border: none; width: 100%; padding: 0; max-width: 100%; }
-            .info-section { grid-template-columns: 180px 20px 1fr; }
-            input, select, textarea { border: none !important; background: transparent !important; padding: 0 !important; appearance: none !important; resize: none !important; }
-            table { display: table !important; table-layout: fixed !important; width: 100% !important; }
-            
-            /* Pengaturan agar Header tidak muncul di halaman berikutnya */
-            thead { display: table-row-group !important; } 
-            th { background: #27ae60 !important; color: white !important; -webkit-print-color-adjust: exact; }
-            
-            tr { display: table-row !important; border: 1px solid #000 !important; page-break-inside: avoid; }
-            td { display: table-cell !important; border: 1px solid #000 !important; }
-            .preview-box { border: none !important; width: 120px !important; height: 180px !important; }
-            textarea { padding-bottom: 0 !important; }
-        }
+       @media print {
+    @page { 
+        size: A4; 
+        margin-top: 2cm;
+        margin-bottom: 1cm;
+        margin-left: 2cm; 
+        margin-right: 2cm; 
+    }
+
+    .controls, .action-area, input[type="file"], .textarea-actions, .visitor-counter-wrapper, .footer { display: none !important; }
+    body { background: white; padding: 0; margin: 0; }
+    .container { box-shadow: none; border: none; width: 100%; padding: 0; max-width: 100%; }
+    .info-section { grid-template-columns: 180px 120px 1fr; }
+    input, select, textarea { border: none !important; background: transparent !important; padding: 0 !important; appearance: none !important; resize: none !important; }
+    table { display: table !important; table-layout: fixed !important; width: 100% !important; }
+
+    thead { display: table-row-group !important; } 
+    th { background: #27ae60 !important; color: white !important; -webkit-print-color-adjust: exact; }
+
+    tr { display: table-row !important; border: 1px solid #000 !important; page-break-inside: avoid; }
+    td { display: table-cell !important; border: 1px solid #000 !important; }
+
+   /* BATASI GAMBAR AGAR MENGIKUTI UKURAN KOLOM CETAK */
+.preview-box {
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+    overflow: hidden !important;
+}
+
+.preview-box img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+}
     </style>
 </head>
 
@@ -337,4 +364,3 @@
 </script>
 </body>
 </html>
-
