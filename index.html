@@ -76,7 +76,9 @@
 
         table { width: 100%; border-collapse: collapse; table-layout: fixed; }
         th, td { border: 1px solid #000; padding: 6px; text-align: center; vertical-align: middle; }
-        th { background: #f2f2f2; font-size: 12px; text-transform: uppercase; font-weight: bold; }
+        
+        /* HEADER BERWARNA HIJAU */
+        th { background: #27ae60; color: white; font-size: 12px; text-transform: uppercase; font-weight: bold; }
 
         .col-no { width: 35px; }
         .col-date { width: 15%; }
@@ -124,7 +126,13 @@
         }
 
         @media print {
-            @page { size: A4; margin: 1cm; }
+            @page { 
+                size: A4; 
+                margin-top: 2cm;
+                margin-bottom: 1cm;
+                margin-left: 2cm; 
+                margin-right: 2cm; 
+            }
             .controls, .action-area, input[type="file"], .textarea-actions, .visitor-counter-wrapper, .footer { display: none !important; }
             body { background: white; padding: 0; margin: 0; }
             .container { box-shadow: none; border: none; width: 100%; padding: 0; max-width: 100%; }
@@ -134,6 +142,7 @@
             
             /* Pengaturan agar Header tidak muncul di halaman berikutnya */
             thead { display: table-row-group !important; } 
+            th { background: #27ae60 !important; color: white !important; -webkit-print-color-adjust: exact; }
             
             tr { display: table-row !important; border: 1px solid #000 !important; page-break-inside: avoid; }
             td { display: table-cell !important; border: 1px solid #000 !important; }
@@ -169,25 +178,37 @@
         
         <label>NAMA PENYULUH</label> <span>:</span> 
             <select id="id_nama">
-            <option>BULAN JANUARI</option><option>BULAN FEBRUARI</option><option>BULAN MARET</option>
-            <option>BULAN APRIL</option><option>BULAN MEI</option><option>BULAN JUNI</option>
-            <option>BULAN JULI</option><option>BULAN AGUSTUS</option><option>BULAN SEPTEMBER</option>
-            <option>BULAN OKTOBER</option><option>BULAN NOVEMBER</option><option>BULAN DESEMBER</option>
+            <option>ABDUL RAHMAN, SP</option>
+            <option>ANDI LUTHFIAH, SP</option>
+            <option>INDRA YULIANA, S.TP., M.Si.</option>
+            <option>NURUL FAHMI, S.P.</option>
+            <option>REZKI RAHAYU, S.P.</option>
+            <option>RIZAL SMITH ANUGRAH SYAM, S.P.</option>
+            <option>SUHADY HAMDAN, S.P.</option>
+            <option>SURAHMAN, S.TP</option>
         </select>
         
         <label>NIP.</label> <span>:</span> 
             <select id="id_nip">
-            <option>BULAN JANUARI</option><option>BULAN FEBRUARI</option><option>BULAN MARET</option>
-            <option>BULAN APRIL</option><option>BULAN MEI</option><option>BULAN JUNI</option>
-            <option>BULAN JULI</option><option>BULAN AGUSTUS</option><option>BULAN SEPTEMBER</option>
-            <option>BULAN OKTOBER</option><option>BULAN NOVEMBER</option><option>BULAN DESEMBER</option>
+            <option>199009202020121001</option>
+            <option>199307162020122003</option>
+            <option>199307062020122001</option>
+            <option>198911142020122002</option>
+            <option>199507052020122003</option>
+            <option>199005152020121001</option>
+            <option>199202072020121001</option>
+            <option>199203122020121003</option>
         </select>
         <label>WILBIN/WKPP</label> <span>:</span> 
             <select id="id_wilayah">
-            <option>BULAN JANUARI</option><option>BULAN FEBRUARI</option><option>BULAN MARET</option>
-            <option>BULAN APRIL</option><option>BULAN MEI</option><option>BULAN JUNI</option>
-            <option>BULAN JULI</option><option>BULAN AGUSTUS</option><option>BULAN SEPTEMBER</option>
-            <option>BULAN OKTOBER</option><option>BULAN NOVEMBER</option><option>BULAN DESEMBER</option>
+            <option>DESA MANURUNG</option>
+            <option>DESA MANNAGAE & DESA ASSORAJANG</option>
+            <option>DESA ALEWADENG</option>
+            <option>DESA BOTTOBENTENG & DESA RUMPIA</option>
+            <option>KELURAHAN MAPPADAELO</option>
+            <option>DESA WORONGNGE</option>
+            <option>DESA PASELLORENG & KELURAHAN GILIRENG</option>
+            <option>DESA BARANGMAMASE</option>
         </select>
     </div>
 
@@ -316,4 +337,3 @@
 </script>
 </body>
 </html>
-
