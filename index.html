@@ -194,7 +194,7 @@
             <option>BULAN OKTOBER</option><option>BULAN NOVEMBER</option><option>BULAN DESEMBER</option>
         </select>
 
-        <label>NAMA PENYULUH</label> <span>:</span> 
+         <label>NAMA PENYULUH</label> <span>:</span> 
         <select id="id_nama">
             <option>ABDUL RAHMAN, SP</option>
             <option>ANDI LUTHFIAH, SP</option>
@@ -263,6 +263,13 @@
 </footer>
 
 <script>
+    // Skrip untuk mengisi teks option secara otomatis dari value-nya
+    document.querySelectorAll('#judulSelect option').forEach(opt => {
+        if (opt.value !== "") {
+            opt.textContent = opt.value;
+        }
+    });
+    
     let count = 0;
     const tableBody = document.getElementById('tableBody');
     const inputNama = document.getElementById('id_nama');
@@ -295,43 +302,52 @@
     }
 
     function addRow(showAlert = false) {
-        count++;
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-            <td data-label="No.">${count}.</td>
-            <td data-label="Tanggal" class="col-date"><input type="date" value="${new Date().toISOString().split('T')[0]}"></td>
-            <td data-label="Judul Konten" class="col-konten">
-                <div class="textarea-container">
-                    <select class="no-print" onchange="const ta=this.nextElementSibling; ta.value=this.value; autoResize(ta);">
-                        <option value="">-- Pilih Judul Konten --</option>
-                        <option value="247 (Instagram: kementerianpertanian) Panen Sekali Jalan: Yuk Kenalan dengan Teknologi Combine Harvester">247 - Combine Harvester</option>
-                        <option value="248 (Tiktok: masdarsudaryono) KABAR BAIK BUAT PETANI">248 - KABAR BAIK</option>
-                        <option value="249 (Instagram: bppsdmp) Tanam Perdana dilokasi Cetak Sawah Rakyat Kabupaten Gowa">249 - Tanam Perdana</option>
-                        <option value="250 (Instagram: a.amran_sulaiman) Kunjungan Kerja Menteri Pertanian">250 - Menteri Pertanian</option>
-                    </select>
-                    <textarea oninput="autoResize(this)" placeholder="Pilih di atas atau ketik manual jika judul konten terbaru belum di-update"></textarea>
-                    <div class="textarea-actions no-print">
-                        <button type="button" class="btn-action btn-clear" onclick="clearText(this)">🗑️</button>
-                        <button type="button" class="btn-action btn-paste" onclick="pasteText(this)">📋</button>
-                    </div>
+    count++;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+        <td data-label="No.">${count}.</td>
+        <td data-label="Tanggal" class="col-date"><input type="date" value="${new Date().toISOString().split('T')[0]}"></td>
+        <td data-label="Judul Konten" class="col-konten">
+            <div class="textarea-container">
+                <select class="no-print judul-select" onchange="const ta=this.nextElementSibling; ta.value=this.value; autoResize(ta);">
+                    <option value="">-- Pilih Judul Konten --</option>
+                    <option value="247 (Instagram: kementerianpertanian) Panen Sekali Jalan: Yuk Kenalan dengan Teknologi Combine Harvester"></option>
+                    <option value="248 (Tiktok: masdarsudaryono) KABAR BAIK BUAT PETANI"></option>
+                    <option value="249 (Instagram: bppsdmp) Tanam Perdana dilokasi Cetak Sawah Rakyat Kabupaten Gowa"></option>
+                    <option value="250 (Instagram: a.amran_sulaiman) Kunjungan Kerja Menteri Pertanian"></option>
+                </select>
+                <textarea oninput="autoResize(this)" placeholder="Pilih diatas atau ketik manual..."></textarea>
+                <div class="textarea-actions no-print">
+                    <button type="button" class="btn-action btn-clear" onclick="clearText(this)">🗑️</button>
+                    <button type="button" class="btn-action btn-paste" onclick="pasteText(this)">📋</button>
                 </div>
-            </td>
-            <td data-label="Like">
-                <input type="file" accept="image/*" onchange="pv(this, 'l${count}')">
-                <div class="preview-box"><img id="l${count}"></div>
-            </td>
-            <td data-label="Comment">
-                <input type="file" accept="image/*" onchange="pv(this, 'c${count}')">
-                <div class="preview-box"><img id="c${count}"></div>
-            </td>
-            <td data-label="Share">
-                <input type="file" accept="image/*" onchange="pv(this, 's${count}')">
-                <div class="preview-box"><img id="s${count}"></div>
-            </td>
-        `;
-        tableBody.appendChild(tr);
-        if (showAlert) alert("Baris berhasil ditambahkan.");
-    }
+            </div>
+        </td>
+        <td data-label="Like">
+            <input type="file" accept="image/*" onchange="pv(this, 'l${count}')">
+            <div class="preview-box"><img id="l${count}"></div>
+        </td>
+        <td data-label="Comment">
+            <input type="file" accept="image/*" onchange="pv(this, 'c${count}')">
+            <div class="preview-box"><img id="c${count}"></div>
+        </td>
+        <td data-label="Share">
+            <input type="file" accept="image/*" onchange="pv(this, 's${count}')">
+            <div class="preview-box"><img id="s${count}"></div>
+        </td>
+    `;
+    tableBody.appendChild(tr);
+
+    // --- BAGIAN PERBAIKAN: Isi teks option langsung setelah baris ditambah ---
+    tr.querySelectorAll('.judul-select option').forEach(opt => {
+        if (opt.value !== "") {
+            opt.textContent = opt.value;
+        }
+    });
+    // -----------------------------------------------------------------------
+
+    if (showAlert) alert("Baris berhasil ditambahkan.");
+}
 
     function removeRow() {
         if (count > 2) { 
