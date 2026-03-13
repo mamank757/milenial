@@ -248,8 +248,8 @@
     </table>
 
     <div class="controls">
-        <button class="btn btn-remove" type="button" onclick="removeRow()">- Hapus Baris</button>
-        <button class="btn btn-add" type="button" onclick="addRow(true)">+ Tambah Baris</button>
+        <button class="btn btn-remove" type="button" onclick="removeRow()">- Hapus Baris Tabel jika hanya 2 Konten</button>
+        <button class="btn btn-add" type="button" onclick="addRow(true)">+ Tambah Baris Tabel jika lebih 3 Konten</button>
     </div>
 
     <div class="action-area">
@@ -315,7 +315,7 @@
                     <option value="249 (Instagram: bppsdmp) Tanam Perdana dilokasi Cetak Sawah Rakyat Kabupaten Gowa"></option>
                     <option value="250 (Instagram: a.amran_sulaiman) Kunjungan Kerja Menteri Pertanian"></option>
                 </select>
-                <textarea oninput="autoResize(this)" placeholder="Pilih diatas atau ketik manual..."></textarea>
+                <textarea oninput="autoResize(this)" placeholder="Pilih di atas atau ketik/paste manual jika belum update"></textarea>
                 <div class="textarea-actions no-print">
                     <button type="button" class="btn-action btn-clear" onclick="clearText(this)">🗑️</button>
                     <button type="button" class="btn-action btn-paste" onclick="pasteText(this)">📋</button>
@@ -385,4 +385,5 @@
 </script>
 </body>
 </html>
+
 
