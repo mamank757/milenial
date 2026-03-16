@@ -211,7 +211,7 @@ th.col-konten{
         </select>
         
         <label>NIP.</label> <span>:</span> 
-            <select id="id_nip">
+<input type="text" id="id_nip" readonly>
             <option>199009202020121001</option>
             <option>199307162020122003</option>
             <option>199307062020122001</option>
@@ -222,7 +222,7 @@ th.col-konten{
             <option>199203122020121003</option>
         </select>
         <label>WILBIN/WKPP</label> <span>:</span> 
-            <select id="id_wilayah">
+<input type="text" id="id_wilayah" readonly>
             <option>DESA MANURUNG</option>
             <option>DESA MANNAGAE & DESA ASSORAJANG</option>
             <option>DESA ALEWADENG</option>
@@ -266,6 +266,55 @@ th.col-konten{
 </footer>
 
 <script>
+
+const dataPenyuluh = {
+"ABDUL RAHMAN, SP": {
+    nip: "199009202020121001",
+    wilayah: "DESA MANURUNG"
+},
+"ANDI LUTHFIAH, SP": {
+    nip: "199307162020122003",
+    wilayah: "DESA MANNAGAE & DESA ASSORAJANG"
+},
+"INDRA YULIANA, S.TP., M.Si.": {
+    nip: "199307062020122001",
+    wilayah: "DESA ALEWADENG"
+},
+"NURUL FAHMI, S.P.": {
+    nip: "198911142020122002",
+    wilayah: "DESA BOTTOBENTENG & DESA RUMPIA"
+},
+"REZKI RAHAYU, S.P.": {
+    nip: "199507052020122003",
+    wilayah: "KELURAHAN MAPPADAELO"
+},
+"RIZAL SMITH ANUGRAH SYAM, S.P.": {
+    nip: "199005152020121001",
+    wilayah: "DESA WORONGNGE"
+},
+"SUHADY HAMDAN, S.P.": {
+    nip: "199202072020121001",
+    wilayah: "DESA PASELLORENG & KELURAHAN GILIRENG"
+},
+"SURAHMAN, S.TP": {
+    nip: "199203122020121003",
+    wilayah: "DESA BARANGMAMASE"
+}
+};
+const selectNama = document.getElementById("id_nama");
+const inputNip = document.getElementById("id_nip");
+const inputWilayah = document.getElementById("id_wilayah");
+
+selectNama.addEventListener("change", function(){
+    const data = dataPenyuluh[this.value];
+
+    if(data){
+        inputNip.value = data.nip;
+        inputWilayah.value = data.wilayah;
+    }
+});
+
+ 
     // --- PUSAT DATA KONFIGURASI ---
     let daftarJudulGlobal = []; 
 
