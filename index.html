@@ -111,7 +111,7 @@ th.col-konten{
 
         @media screen and (max-width: 768px) {
             .info-section { grid-template-columns: 1fr; gap: 5px; }
-            .info-section span { display: none; }
+            .info-section > span { display: none; }
             table, thead, tbody, th, td, tr { display: block; }
             table { table-layout: auto; }
             thead { display: none; }
@@ -215,8 +215,7 @@ th.col-konten{
 
 <label>WILBIN/WKPP <span class="no-print">(otomatis akan terisi)</span></label> <span>:</span>
 <input type="text" id="id_wilayah" readonly>
-        </select>
-    </div>
+          </div>
 
     <table>
         <thead>
