@@ -149,6 +149,10 @@ th.col-konten{
             body { background: white; padding: 0; margin: 0; }
             .container { box-shadow: none; border: none; width: 100%; padding: 0; max-width: 100%; }
             
+    .no-print {
+        display: none !important;
+    }
+}
             /* Menjaga struktur identitas saat print */
             .info-section { 
                 display: grid !important; 
@@ -210,7 +214,7 @@ th.col-konten{
             <option>SURAHMAN, S.TP</option>
         </select>
         
-        <label>NIP.</label> <span>:</span> 
+        <label>NIP. <span class="no-print">(otomatis akan terisi)</span></label> <span>:</span> 
 <input type="text" id="id_nip" readonly>
             <option>199009202020121001</option>
             <option>199307162020122003</option>
@@ -221,7 +225,7 @@ th.col-konten{
             <option>199202072020121001</option>
             <option>199203122020121003</option>
         </select>
-        <label>WILBIN/WKPP</label> <span>:</span> 
+        <label>WILBIN/WKPP <span class="no-print">(otomatis akan terisi)</span></label> <span>:</span> 
 <input type="text" id="id_wilayah" readonly>
             <option>DESA MANURUNG</option>
             <option>DESA MANNAGAE & DESA ASSORAJANG</option>
