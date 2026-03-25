@@ -7,6 +7,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no, date=no, email=no, address=no">
     <title>LCS, Tanggal, Nama Penyuluh</title>
     <style>
         * { box-sizing: border-box; }
@@ -145,6 +146,14 @@ th.col-konten{
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
+            
+          @media print {
+    * {
+        color: #000 !important;
+        text-decoration: none !important;
+        -webkit-text-fill-color: #000 !important;
+    }
+}
             .controls, .action-area, input[type="file"], .textarea-actions, .visitor-counter-wrapper, .footer, .no-print { display: none !important; }
             body { background: white; padding: 0; margin: 0; }
             .container { box-shadow: none; border: none; width: 100%; padding: 0; max-width: 100%; }
