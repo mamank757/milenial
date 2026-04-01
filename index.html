@@ -245,7 +245,7 @@ th.col-konten{
     </table>
 
     <div class="controls">
-        <button class="btn btn-remove" type="button" onclick="removeRow()">- Hapus Baris Tabel jika hanya 2 Konten</button>
+        <button class="btn btn-remove" type="button" onclick="removeRow()">- Hapus Baris Tabel jika kurang dari 3 Konten</button>
         <button class="btn btn-add" type="button" onclick="addRow(true)">+ Tambah Baris Tabel jika lebih 3 Konten</button>
     </div>
 
@@ -419,13 +419,13 @@ selectNama.addEventListener("change", function(){
     }
 
     function removeRow() {
-        if (count > 2) { 
+        if (count > 1) { 
             if (confirm("Hapus baris terakhir?")) {
                 tableBody.removeChild(tableBody.lastChild); 
                 count--; 
             }
         } else { 
-            alert("Minimal harus tersisa 2 baris."); 
+            alert("Minimal harus tersisa 1 baris."); 
         }
     }
 
