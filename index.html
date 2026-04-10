@@ -257,18 +257,24 @@ th.col-konten{
             <option>BULAN OKTOBER</option><option>BULAN NOVEMBER</option><option>BULAN DESEMBER</option>
         </select>
 
-        <label>NAMA PENYULUH</label> <span>:</span> 
-            <select id="id_nama">
-            <option>ABDUL RAHMAN, SP</option>
-            <option>ANDI LUTHFIAH, SP</option>
-            <option>INDRA YULIANA, S.TP., M.Si.</option>
-            <option>NURUL FAHMI, S.P.</option>
-            <option>REZKI RAHAYU, S.P.</option>
-            <option>RIZAL SMITH ANUGRAH SYAM, S.P.</option>
-            <option>SUHADY HAMDAN, S.P.</option>
-            <option>SULFIANITA, S.P.</option>
-            <option>SURAHMAN, S.TP</option>
-        </select>
+       <label>NAMA PENYULUH</label> <span>:</span> 
+<select id="id_nama">
+    <option value="">-- Pilih Nama --</option>
+    <option>ABDUL RAHMAN, SP</option>
+    <option>A. FATHUR MUH. ISHAQ B, S.ST., M.Si</option>
+    <option>ANDI LUTHFIAH, SP</option>
+    <option>FITRIYANTI HASNURI, S.TP</option>
+    <option>INDRA YULIANA, S.TP., M.Si.</option>
+    <option>MIFTAHUL KHAIR, S.P.</option>
+    <option>NURUL FAHMI, S.P.</option>
+    <option>REZKI RAHAYU, S.P.</option>
+    <option>RIZAL SMITH ANUGRAH SYAM, S.P.</option>
+    <option>SUHADY HAMDAN, S.P.</option>
+    <option>SULFIANITA, S.P.</option>
+    <option>SURAHMAN, S.TP</option>
+    <option>UMAR, SP</option>
+</select>
+
         
         <label>NIP. <span class="no-print">(otomatis akan terisi)</span></label> <span>:</span>
 <input type="text" id="id_nip" readonly>
@@ -310,44 +316,62 @@ th.col-konten{
 
 <script>
 
+
 const dataPenyuluh = {
-"ABDUL RAHMAN, SP": {
-    nip: "199009202020121001",
-    wilayah: "DESA MANURUNG"
-},
-"ANDI LUTHFIAH, SP": {
-    nip: "199307162020122003",
-    wilayah: "DESA MANNAGAE & DESA ASSORAJANG"
-},
-"INDRA YULIANA, S.TP., M.Si.": {
-    nip: "199307062020122001",
-    wilayah: "DESA ALEWADENG"
-},
-"NURUL FAHMI, S.P.": {
-    nip: "198911142020122002",
-    wilayah: "DESA BOTTOBENTENG & DESA RUMPIA"
-},
-"REZKI RAHAYU, S.P.": {
-    nip: "199507052020122003",
-    wilayah: "KELURAHAN MAPPADAELO"
-},
-"RIZAL SMITH ANUGRAH SYAM, S.P.": {
-    nip: "199005152020121001",
-    wilayah: "DESA WORONGNGE"
-},
-"SUHADY HAMDAN, S.P.": {
-    nip: "199202072020121001",
-    wilayah: "DESA PASELLORENG & KELURAHAN GILIRENG"
-},
-"SULFIANITA, S.P.": {
-    nip: "199505082020122004",
-    wilayah: "DESA SIMPURSIA"
-},
-"SURAHMAN, S.TP": {
-    nip: "199203122020121003",
-    wilayah: "DESA BARANGMAMASE"
-}
+    "ABDUL RAHMAN, SP": {
+        nip: "199009202020121001",
+        wilayah: "DESA MANURUNG"
+    },
+    "A. FATHUR MUH. ISHAQ B, S.ST., M.Si": {
+        nip: "199604112020121001",
+        wilayah: "KEL. LAELO, KEL. TEMPE, KEL. CEMPALAGI"
+    },
+    "ANDI LUTHFIAH, SP": {
+        nip: "199307162020122003",
+        wilayah: "DESA MANNAGAE & DESA ASSORAJANG"
+    },
+    "FITRIYANTI HASNURI, S.TP": {
+        nip: "199409042020122001",
+        wilayah: "DESA ONGKOE"
+    },
+    "INDRA YULIANA, S.TP., M.Si.": {
+        nip: "199307062020122001",
+        wilayah: "DESA ALEWADENG"
+    },
+    "MIFTAHUL KHAIR, S.P.": {
+        nip: "199311192020122003",
+        wilayah: "DESA LEMPA"
+    },
+    "NURUL FAHMI, S.P.": {
+        nip: "198911142020122002",
+        wilayah: "DESA BOTTOBENTENG & DESA RUMPIA"
+    },
+    "REZKI RAHAYU, S.P.": {
+        nip: "199507052020122003",
+        wilayah: "KELURAHAN MAPPADAELO"
+    },
+    "RIZAL SMITH ANUGRAH SYAM, S.P.": {
+        nip: "199005152020121001",
+        wilayah: "DESA WORONGNGE"
+    },
+    "SUHADY HAMDAN, S.P.": {
+        nip: "199202072020121001",
+        wilayah: "DESA PASELLORENG & KELURAHAN GILIRENG"
+    },
+    "SULFIANITA, S.P.": {
+        nip: "199505082020122004",
+        wilayah: "DESA SIMPURSIA"
+    },
+    "SURAHMAN, S.TP": {
+        nip: "199203122020121003",
+        wilayah: "DESA BARANGMAMASE"
+    },
+    "UMAR, SP": {
+        nip: "199408272020121001",
+        wilayah: "DESA WALANGA & DESA RADDAE"
+    }
 };
+
 const selectNama = document.getElementById("id_nama");
 const inputNip = document.getElementById("id_nip");
 const inputWilayah = document.getElementById("id_wilayah");
